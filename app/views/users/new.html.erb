@@ -1,9 +1,56 @@
 <% provide(:title, 'Sign up') %>
-<% provide(:button_text, 'Create my account') %>
-<h1>Sign up</h1>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= render 'form' %>
+<div class="cart-table-area section-padding-100">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-lg-8">
+        <%= form_for(@user) do |f| %>
+        <div class="checkout_details_area mt-50 clearfix">
+          <%= render "shared/error_messages", object: @user %>
+          <div class="cart-title">
+            <h2>Signup</h2>
+          </div>
+            <div class="row">
+              <div class="col-12 mb-3">
+                <%= f.label :name %>
+                <%= f.text_field :name, class: "form-control" %>
+              </div>
+              <div class="col-12 mb-3">
+                <%= f.label :avatar %><br>
+                <%= f.file_field :avatar%>
+              </div>
+              <div class="col-12 mb-3">
+                <%= f.label :login_name %>
+                <%= f.text_field :login_name, class: "form-control" %>
+              </div>
+              <div class="col-12 mb-3">
+                <%= f.label :gender %>
+                <%= f.select :gender, [["Male"], ["Female"], ["Other"]], {}, {class: "w-100"}  %>
+              </div>
+              <div class="col-12 mb-3">
+                <%= f.label :email %>
+                <%= f.email_field :email, class: "form-control" %>
+              </div>
+              <div class="col-12 mb-3">
+                <%= f.label :password %>
+                <%= f.password_field :password, class: "form-control" %>
+              </div>
+              <div class="col-12 mb-3">
+                <%= f.label :password_confirmation, "Confirmation" %>
+                <%= f.password_field :password_confirmation, class: "form-control" %>
+              </div>
+            </div>
+            <div class="cart-btn">
+              <%= f.submit "Signup", class:"btn amado-btn w-100" %>
+            </div>
+        </div>
+        <% end %>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="cart-summary">
+          <%= image_tag("book_background.jpg") %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -12,7 +12,9 @@ Rails.application.routes.draw do
     get "change_form"
     get "show_by_category"
     resources :likes, only: [:create, :destroy]
+    get "generate_comment_form"
   end
   resources :users
   resources :account_activations, only: [:edit]
+  resources :comments, only: [:create]
 end

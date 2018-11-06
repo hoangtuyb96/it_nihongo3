@@ -30,28 +30,28 @@
             <% end %>
             <div class="ratings-review mb-15 d-flex align-items-center justify-content-between">
               <div class="ratings">
-                <% if current_user.present? %>
                   <%= rating_for @book, "quality", star: 5,  disable_after_rate: false, cancel: true %>
                   Total vote: <%= @book.rates("quality").count %>
                   <br>
                   <% unless @book.rates("quality").count == 0 %> 
                     Average Score: <%= @book.average("quality").avg %>
                   <% end %>
-                <% end %>
               </div>
               <div class="review">
                 <div id="like-form">
                   <%= render "likes/like_form" %><br>
                 </div>
-                <a href="#">Write A Review</a>
+                <% if logged_in? %>
+                  <%= link_to "Write A Review", book_generate_comment_form_path(@book), remote: true %>
+                <% end %>
               </div>
             </div>
           </div>
           <div class="short_overview my-5" id="form">
             <%= render "information" %>
           </div>
-          <div id="comments">
-            <%= render "comments" %>
+          <div id="comment_div">
+            <%= render "comment_div" %>
           </div>
         </div>
       </div>

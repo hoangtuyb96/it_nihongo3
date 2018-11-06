@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :books do
     get "change_form"
     get "show_by_category"
+    resources :likes, only: [:create, :destroy]
   end
   resources :users
   resources :account_activations, only: [:edit]

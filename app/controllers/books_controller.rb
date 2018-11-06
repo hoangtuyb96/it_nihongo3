@@ -13,6 +13,7 @@ class BooksController < ApplicationController
   end
   
   def show
+    @comments = book.comments
   end
 
   def create

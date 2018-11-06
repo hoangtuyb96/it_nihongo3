@@ -4,6 +4,7 @@ class User < ApplicationRecord
 	has_many :reviews
   has_many :likes
   has_many :liked_book, through: :likes, source: :book
+  has_many :comments
   ATTRIBUTES_PARAMS = [:name, :avatar, :login_name, :email, :genre, :password, :password_confirmation]
   attr_accessor :remember_token, :activation_token
   before_save   :downcase_email

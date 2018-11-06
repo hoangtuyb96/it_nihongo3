@@ -1,0 +1,15 @@
+<section id="app" class="comments">
+  <% @comments.each do |comment| %>
+    <article>
+      <% if comment.user.avatar.present? %>
+        <%= cl_image_tag(comment.user.avatar) %>
+      <% else %>
+        <%= image_tag("avatar-default.png") %>
+      <% end %>
+      <h4><%= link_to comment.user.name, user_path(comment.user) %></h4>
+      <time><%= time_ago_in_words(comment.updated_at) %></time>
+      <like></like>
+      <p><%= comment.content %></p>
+    </article>
+  <% end %>
+</section>

@@ -7,5 +7,6 @@ class Book < ApplicationRecord
 	has_many :reviews
   has_many :likes
   has_many :liked_user, through: :likes, source: :user
+  has_many :comments
 	validates :user, presence: true
 end

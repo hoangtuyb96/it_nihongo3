@@ -30,11 +30,14 @@
             <% end %>
             <div class="ratings-review mb-15 d-flex align-items-center justify-content-between">
               <div class="ratings">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
+                <% if current_user.present? %>
+                  <%= rating_for @book, "quality", star: 5,  disable_after_rate: false, cancel: true %>
+                  Total vote: <%= @book.rates("quality").count %>
+                  <br>
+                  <% unless @book.rates("quality").count == 0 %> 
+                    Average Score: <%= @book.average("quality").avg %>
+                  <% end %>
+                <% end %>
               </div>
               <div class="review">
                 <a href="#">Write A Review</a>

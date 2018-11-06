@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
   get 'sessions/new'
   root 'static_pages#home'
   get  '/help',    to: 'static_pages#help'

@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  ratyrate_rater
 	has_many :books
 	has_many :reviews
   ATTRIBUTES_PARAMS = [:name, :avatar, :login_name, :email, :genre, :password, :password_confirmation]

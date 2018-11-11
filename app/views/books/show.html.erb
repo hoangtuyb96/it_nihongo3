@@ -40,14 +40,16 @@
                 <div id="like-form">
                   <%= render "likes/like_form" %><br>
                 </div>
-                <% if logged_in? %>
-                  <%= link_to "Write A Review", book_generate_comment_form_path(@book), remote: true %>
-                <% end %>
               </div>
             </div>
           </div>
           <div class="short_overview my-5" id="form">
             <%= render "information" %>
+            <% if logged_in? %>
+              <%= link_to book_generate_comment_form_path(@book), remote: true do %>
+                <button type="button" class="btn btn-warning">Comment</button>
+              <% end %>
+            <% end %>
           </div>
           <div id="comment_div">
             <%= render "comments/comment_div" %>

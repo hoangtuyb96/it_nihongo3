@@ -9,4 +9,8 @@ class Book < ApplicationRecord
   has_many :liked_user, through: :likes, source: :user
   has_many :comments
 	validates :user, presence: true
+
+  def self.search(search_param)
+    where('title LIKE ?', "%#{search_param}%")
+  end
 end

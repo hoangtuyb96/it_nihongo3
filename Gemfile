@@ -23,8 +23,7 @@ gem "mini_magick", "4.7.0"
 gem "font-awesome-rails"
 gem "pry"
 gem "faker"
-gem "kaminari" 
-gem "ransack"
+gem "kaminari"
 gem "bootstrap-kaminari-views"
 gem "ratyrate", github: 'wazery/ratyrate'
 

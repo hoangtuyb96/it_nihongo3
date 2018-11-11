@@ -17,10 +17,12 @@
         <div class="row">
           <div class="col-12">
             <div class="search-content">
-              <form action="#" method="get">
-                <input type="search" name="search" id="search" placeholder="Type your keyword...">
-                <button type="submit"><%= image_tag("search.png") %></button>
-              </form>
+              <%= form_for :search, url: search_path do |f| %>
+                <%= search_field_tag :title %>
+                <%= f.button :submit do %>
+                  <%= image_tag("search.png") %>
+                <% end %>
+              <% end %>
             </div>
           </div>
         </div>

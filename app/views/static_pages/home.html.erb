@@ -2,6 +2,9 @@
 
 <div class="products-catagories-area ">
   <div class="amado-pro-catagory ">
+    <% if params[:title].present? %>
+    <h1><%= params[:title] %>'s Result Search</h1>
+    <% end %>
     <div class="row">
       <% @books.each do |book| %>
         <div class="col-6 col-sm-4 col-md-6 col-xl-4">

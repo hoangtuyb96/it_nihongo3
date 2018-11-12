@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_06_181322) do
+ActiveRecord::Schema.define(version: 2018_11_12_023344) do
 
   create_table "average_caches", force: :cascade do |t|
     t.integer "rater_id"
@@ -117,6 +117,7 @@ ActiveRecord::Schema.define(version: 2018_11_06_181322) do
     t.datetime "activated_at"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
+    t.boolean "is_admin"
   end
 
 end

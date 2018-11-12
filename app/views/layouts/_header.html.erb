@@ -17,15 +17,20 @@
       <%= link_to "Help", "#" %>
     </li>
     <% if logged_in? %>
-    <li>
-      <%= link_to current_user.name, current_user %>
-    </li>
-    <li>
-      <li><%= link_to "Create Book", new_book_path %>
+      <li>
+        <%= link_to current_user.name, current_user %>
+      </li>
+      <li>
+        <%= link_to "Create Book", new_book_path %>
       </li>
       <li>
         <%= link_to "Log out", logout_path, method: :delete %>
       </li>
+      <% if current_user.is_admin %>
+        <li>
+          <%= link_to "Manage book", admin_books_path %>
+        </li>
+      <% end %>
       <% else %>
       <li>
         <%= link_to "Log in", login_path %>

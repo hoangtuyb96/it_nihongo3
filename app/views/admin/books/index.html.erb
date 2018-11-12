@@ -1,0 +1,42 @@
+<%= provide :title, "Manage Book" %>
+
+<div class="cart-table-area section-padding-100">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-lg-9">
+        <h2>Manage Book</h2>
+
+        <table class="table">
+          <thead>
+            <tr class="d-flex">
+              <th class="col-1">Title</th>
+              <th class="col-1">Author</th>
+              <th class="col-1">Issue Date</th>
+              <th class="col-1">Publishing Company</th>
+              <th class="col-5">Description</th>
+              <th class="col-1">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @books.each do |book| %>
+              <tr class="d-flex">
+                <td class="col-1"><%= book.title %></td>
+                <td class="col-1"><%= book.author %></td>
+                <td class="col-1"><%= book.issue_date %></td>
+                <td class="col-1"><%= book.publishing_company %></td>
+                <td class="col-5"><%= book.description %></td>
+                <td class="col-1">
+                  <%= link_to admin_book_path(book), method: :delete do %>
+                    <i class="fa fa-trash fa-3x"></i>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <%= paginate @books, theme: 'twitter-bootstrap-3' %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -22,4 +22,8 @@ Rails.application.routes.draw do
   resources :comments, only: [:create, :update, :destroy]
   resources :password_resets, only: [:new, :create, :edit, :update]
   post '/search', to: 'search#search'
+
+  namespace :admin do
+    resources :books, only: [:index, :destroy]
+  end
 end
